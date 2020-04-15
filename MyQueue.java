@@ -9,15 +9,16 @@ public class MyQueue<T> implements Frontier<T>{
 
   public void add(T newItem){
     // TO BE IMPLEMENTED
+    queue.add(newItem);
   }
 
   public T remove(){
     // TO BE IMPLEMENTED
-    return null;
+    return queue.remove();
   }
 
   public int size(){
     // TO BE IMPLEMENTED
-    return 0;
+    return queue.size();
   }
 }

@@ -1,0 +1,11 @@
+Task 1
+System.out.print("\033\143"); its clear all the consle,command line, and its also wait for 1 sec to run the animation effect.
+Also it replace the number with the new number that you have assign. In the maze solver file in every position that it
+have visit and the posiotion is valid it will clear the number and replace it with 2 so that mean the position have already been visit.
+
+Task 3
+So the queue take more time than the stack. It use the first in first out approach. Which it check the first element that is added to the queue and then return it.
+Unlike stack where it use last in first out. It check the last element that have been push in and the return it. 
+
+Task 4
+The last strategy work faster due to equation that we use. It find the shortest path to exit the maze, rather than check every position like stack and queue.

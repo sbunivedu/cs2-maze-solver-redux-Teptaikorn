@@ -31,9 +31,7 @@ public class MazeSolver{
     boolean done = false;
     int row, column;
     Position pos = new Position();
-    //Deque<Position> stack = new LinkedList<Position>();
-    Frontier<Position> frontier = new MyStack<Position>();
-    //stack.push(pos);
+    Frontier<Position> frontier = new MyTree<Position>();
     frontier.add(pos);
     
     while (!(done) && frontier.size() != 0){
@@ -46,10 +44,14 @@ public class MazeSolver{
         push_new_pos(pos.getx(),pos.gety() - 1, frontier);
         push_new_pos(pos.getx(),pos.gety() + 1, frontier); 
       }
+      System.out.print("\033\143"); 
+      System.out.println(maze);
+      System.out.println("The size of the maze " + frontier.size());
+      try{
+        Thread.sleep(300);
+      }catch(InterruptedException e){}
       maze.tryPosition(pos.getx(),pos.gety());  // this cell has been tried
-      //System.out.println(maze);
     }
-
     return done;
   }
 
@@ -64,7 +66,7 @@ public class MazeSolver{
    */
    public boolean traverse_rc(int row, int column){
      return false;
-   }
+   } 
 
   /**
    * Push a new attempted move onto the stack
@@ -76,6 +78,8 @@ public class MazeSolver{
     Position npos = new Position();
     npos.setx(x);
     npos.sety(y);
+    int distance = (maze.getRows() - x) + (maze.getColumns()-y);
+    npos.setDistance(distance);
     if (maze.validPosition(x,y)){
       frontier.add(npos);
     }
